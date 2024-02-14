@@ -4,4 +4,11 @@ type Person = {
     email: string;
     age?: number;
 };
-export { Person };
+
+type Adress = {
+    id: string;
+    street: string;
+    city: string;
+    zip: string;
+};
+export { Person, Adress };

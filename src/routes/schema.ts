@@ -6,13 +6,13 @@ const typeDefs = `
     hello: String
     persons: [Person]
     person(id: ID!): Person
+    adresses: [Adress]
+    adress(id: ID!): Adress
   }
-
   type Mutation {
     createPerson(name: String!, email: String!, age: Int): Person
     createAdress(street: String!, city: String!, zip: String!): Adress
   }
-
   type Person {
     id: ID!
     name: String!

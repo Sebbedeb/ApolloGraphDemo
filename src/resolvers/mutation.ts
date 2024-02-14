@@ -1,4 +1,4 @@
-import { persons } from '../routes/data.js';
+import { persons, adresses } from '../routes/data.js';
 
 const MutationResolvers = {
     Mutation: {
@@ -11,6 +11,16 @@ const MutationResolvers = {
             };
             persons.push(newPerson);
             return newPerson;
+        },
+        createAdress: (_parent: never, args: { street: string, city: string, zip: string }, _context: never, _info: never) => {
+            const newAdress = {
+                id: String(persons.length + 1),
+                street: args.street,
+                city: args.city,
+                zip: args.zip,
+            };
+            adresses.push(newAdress);
+            return newAdress;
         }
     }
 };
