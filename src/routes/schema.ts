@@ -1,5 +1,5 @@
-import { users, books, categories } from './data.js';
-import { User, Book, Category } from './types.js';
+import { persons } from './data.js';
+import { Person } from './types.js';
 
 const typeDefs = `#graphql 
 type Query {

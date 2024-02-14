@@ -6,8 +6,6 @@ import express from 'express';
 import http from 'http';
 import cors from 'cors';
 import { typeDefs, resolvers } from './schema.js';
-//IMPORT DATA
-//import { books, categories, users } from './data.js';
 
 interface MyContext {
   token?: String;
