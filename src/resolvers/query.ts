@@ -38,6 +38,15 @@ const QueryResolvers = {
     ) => {
       return persons.find((person) => person.email === args.email);
     },
+    //Add a query to get all addresses by zip code.
+    adressesByZip: (
+      _parent: never,
+      args: { zip: string },
+      _context: never,
+      _info: never
+    ) => {
+      return adresses.filter((adress) => adress.zip === args.zip);
+    },
   }
 };
 

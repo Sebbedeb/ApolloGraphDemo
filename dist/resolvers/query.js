@@ -17,6 +17,10 @@ const QueryResolvers = {
         personByEmail: (_parent, args, _context, _info) => {
             return persons.find((person) => person.email === args.email);
         },
+        //Add a query to get all addresses by zip code.
+        adressesByZip: (_parent, args, _context, _info) => {
+            return adresses.filter((adress) => adress.zip === args.zip);
+        },
     }
 };
 export { QueryResolvers };
