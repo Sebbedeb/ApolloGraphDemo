@@ -20,7 +20,43 @@ const MutationResolvers = {
             };
             adresses.push(newAdress);
             return newAdress;
-        }
+        },
+        //Add a mutation to add a person to an address.
+        addPersonToAdress: (_parent, args, _context, _info) => {
+            const person = persons.find((person) => person.id === args.personId);
+            const adress = adresses.find((adress) => adress.id === args.adressId);
+            if (person !== undefined && adress !== undefined) {
+                person.adress = adress;
+                if (adress.persons !== undefined) {
+                    adress.persons.push(person);
+                }
+                return person;
+            }
+            return null;
+        },
+        //Add a mutation to remove a person from an address.
+        removePersonFromAdress: (_parent, args, _context, _info) => {
+            const person = persons.find((person) => person.id === args.personId);
+            const adress = adresses.find((adress) => adress.id === args.adressId);
+            if (person !== undefined && adress !== undefined) {
+                person.adress = undefined;
+                if (adress.persons !== undefined) {
+                    adress.persons = adress.persons.filter((p) => p.id !== person.id);
+                }
+                return person;
+            }
+            return null;
+        },
+        //Add a mutation to delete a person.
+        deletePerson: (_parent, args, _context, _info) => {
+            const personIndex = persons.findIndex((person) => person.id === args.id);
+            if (personIndex !== -1) {
+                const person = persons[personIndex];
+                persons.splice(personIndex, 1);
+                return person;
+            }
+            return null;
+        },
     }
 };
 export { MutationResolvers };
