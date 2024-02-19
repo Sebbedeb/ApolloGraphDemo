@@ -6,7 +6,8 @@ const MutationResolvers = {
                 id: String(persons.length + 1),
                 name: args.name,
                 email: args.email,
-                age: args.age !== undefined ? args.age : 0, // Providing a default value if age is not provided
+                age: args.age !== undefined ? args.age : 0,
+                imgURL: args.imgURL !== undefined ? args.imgURL : "",
             };
             persons.push(newPerson);
             return newPerson;

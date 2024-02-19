@@ -41,7 +41,7 @@ const QueryResolvers = {
     //Add a query to get all addresses by zip code.
     adressesByZip: (
       _parent: never,
-      args: { zip: string },
+      args: { zip: number },
       _context: never,
       _info: never
     ) => {

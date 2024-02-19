@@ -3,17 +3,18 @@ import { Adress, Person } from '../routes/types.js';
 
 const MutationResolvers = {
     Mutation: {
-        createPerson: (_parent: never, args: { name: string, age: number, email: string }, _context: never, _info: never) => {
+        createPerson: (_parent: never, args: { name: string, age: number, email: string, imgURL: string }, _context: never, _info: never) => {
             const newPerson = {
                 id: String(persons.length + 1),
                 name: args.name,
                 email: args.email,
-                age: args.age !== undefined ? args.age : 0, // Providing a default value if age is not provided
+                age: args.age !== undefined ? args.age : 0,
+                imgURL: args.imgURL !== undefined ? args.imgURL : "",
             };
             persons.push(newPerson);
             return newPerson;
         },
-        createAdress: (_parent: never, args: { street: string, city: string, zip: string }, _context: never, _info: never) => {
+        createAdress: (_parent: never, args: { street: string, city: string, zip: number }, _context: never, _info: never) => {
             const newAdress = {
                 id: String(persons.length + 1),
                 street: args.street,

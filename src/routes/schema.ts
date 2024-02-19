@@ -14,7 +14,7 @@ const typeDefs = `
   }
   type Mutation {
     createPerson(name: String!, email: String!, age: Int): Person
-    createAdress(street: String!, city: String!, zip: String!): Adress
+    createAdress(street: String!, city: String!, zip: Int!): Adress
     addPersonToAdress(personId: ID!, adressId: ID!): Person
     removePersonFromAdress(personId: ID!, adressId: ID!): Person
     deletePerson(id: ID!): Person
@@ -24,13 +24,14 @@ const typeDefs = `
     name: String!
     email: String!
     age: Int
+    imgURL: String
     adress: Adress
   }
   type Adress {
     id: ID!
     street: String!
     city: String!
-    zip: String!
+    zip: Int!
     persons: [Person]
   }
 `;

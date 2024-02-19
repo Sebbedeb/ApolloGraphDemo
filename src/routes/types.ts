@@ -10,7 +10,7 @@ type Adress = {
     id: string;
     street: string;
     city: string;
-    zip: string;
+    zip: number;
     persons?: Person[];
 };
 export { Person, Adress };
